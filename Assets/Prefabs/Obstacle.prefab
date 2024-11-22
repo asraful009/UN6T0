@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1324700726715073809}
   - component: {fileID: 3504849957589257369}
   - component: {fileID: 5965768137896898774}
+  - component: {fileID: -7235929395867112785}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Untagged
@@ -95,7 +96,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2748692783767788621}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 00aea108165c88f1d91b9b47744349a9, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -133,6 +134,18 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &-7235929395867112785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2748692783767788621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466e1bc82d0a6e189887e8c769ad496b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
