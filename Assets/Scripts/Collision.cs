@@ -13,13 +13,18 @@ public class Colluation : MonoBehaviour
                 // Check if the contact point is associated with your object's collider
                 if (contact.thisCollider == GetComponent<Collider>())
                 {
+                    // Get the contact point and collision normal
+                    Vector3 contactPoint = contact.point;
                     Vector3 collisionNormal = contact.normal;
 
-                    Debug.Log("Collision Normal: " + collisionNormal);
+                    // Get your object's position (assumes this script is on your GameObject)
+                    Vector3 myPosition = transform.position;
 
-                    // Additional logic here
+                    // Calculate the distance along the normal
+                    float normalDistance = Vector3.Dot(contactPoint - myPosition, collisionNormal);
+
                 }
             }
         }
-    }
+    }         
 }
