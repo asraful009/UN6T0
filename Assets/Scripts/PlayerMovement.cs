@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 1000;
     [FormerlySerializedAs("Movement Speed")]
     public float movementSpeed = 20;
-    
+    [FormerlySerializedAs("GameManager")] public GameManager gameManager;
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -19,7 +19,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     { 
+        if (_rb is null) return;
         _rb.AddForce(new Vector3(speed * Time.deltaTime, 0, 0));
+       
+        
         if (Input.GetKey(KeyCode.RightArrow))
         {
             _rb.AddForce(new Vector3(0, 0, -movementSpeed * Time.deltaTime), ForceMode.VelocityChange);
@@ -27,6 +30,11 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
             _rb.AddForce(new Vector3(0, 0, movementSpeed * Time.deltaTime), ForceMode.VelocityChange);
+        }
+
+        if (_rb.position.y < -10)
+        {
+            gameManager?.EndGame();     
         }
     }
 }
