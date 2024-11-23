@@ -970,7 +970,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -1327,7 +1327,7 @@ RectTransform:
   m_GameObject: {fileID: 1424299440}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.4063, y: 2.4063, z: 2.4063}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 626299732}
@@ -1350,7 +1350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.13153838, g: 0.25492197, b: 0.15305287, a: 1}
+  m_Color: {r: 0.18161201, g: 0.19171375, b: 0.18324132, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1359,16 +1359,16 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 78d0c81461a029ff9bba99f2cc741189, type: 3}
-    m_FontSize: 14
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1.15
   m_Text: 1234567890
 --- !u!222 &1424299443
@@ -1678,6 +1678,8 @@ GameObject:
   - component: {fileID: 2079308867}
   - component: {fileID: 2079308871}
   - component: {fileID: 2079308872}
+  - component: {fileID: 2079308873}
+  - component: {fileID: 2079308874}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1815,6 +1817,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1000
   movementSpeed: 20
+--- !u!114 &2079308873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079308866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6d1228b875c035c78a0565a99d3d2ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 1424299442}
+  playerTransform: {fileID: 2079308870}
+--- !u!114 &2079308874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079308866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466e1bc82d0a6e189887e8c769ad496b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Score: {fileID: 2079308873}
 --- !u!1001 &4579606079780941050
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1826,6 +1855,10 @@ PrefabInstance:
     - target: {fileID: 2748692783767788621, guid: 8705b7f303dbde88a9987307af8450ba, type: 3}
       propertyPath: m_Name
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2748692783767788621, guid: 8705b7f303dbde88a9987307af8450ba, type: 3}
+      propertyPath: m_TagString
+      value: Collision
       objectReference: {fileID: 0}
     - target: {fileID: 4815077115331955644, guid: 8705b7f303dbde88a9987307af8450ba, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1867,7 +1900,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7235929395867112785, guid: 8705b7f303dbde88a9987307af8450ba, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
