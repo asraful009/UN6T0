@@ -13,12 +13,11 @@ public class Colluation : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Collision"))
         {
-            if(score != null)
-                score.AddScore(10);
-            
-        } else if (other.gameObject.CompareTag("FinishTigger"))
-        {
-            gameManager?.EndGame();         
+            if (score != null)
+            {
+                score.AddScore(100);
+            }
+
         }
-    }          
+    }
 }

@@ -5,14 +5,36 @@ public class GameManager : MonoBehaviour
 {
     bool isGameOver = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public void EndGame()
+
+    public GameObject completeLevelUI;
+    
+    public void FinishedLevel()
     {
-        if (!isGameOver) 
-            Invoke(nameof(LevelLoaded), 2);
+        if (!isGameOver)
+        {
+            completeLevelUI.SetActive(true);
+            isGameOver = true;
+            // Invoke(nameof(NestLevel), 2);
+        }
     }
 
-    private void LevelLoaded()
+    // ReSharper disable Unity.PerformanceAnalysis
+    public void EndGame()
+    {
+        if (!isGameOver)
+        {
+            isGameOver = true;
+            Invoke(nameof(ReloadLevel), 1.0f);
+        }
+    }
+
+    private void ReloadLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    
+    private void NestLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 }
