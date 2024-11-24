@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FinalLevel : MonoBehaviour
+public class ButtonEvent : MonoBehaviour
 {
     public void Quit()
     {
@@ -16,5 +16,10 @@ public class FinalLevel : MonoBehaviour
     public void GoToLevel()
     {
         SceneManager.LoadScene(0);
+    }
+    
+    public void GoToLevelPlay()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 }

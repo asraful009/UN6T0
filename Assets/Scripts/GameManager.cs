@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
         {
             completeLevelUI.SetActive(true);
             isGameOver = true;
-            // Invoke(nameof(NestLevel), 2);
+            Invoke(nameof(NestLevel), 2);
         }
     }
 

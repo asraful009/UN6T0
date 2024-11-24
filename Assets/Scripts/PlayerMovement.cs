@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (_rb.position.y < -10)
         {
-            gameManager?.EndGame();     
+            gameManager?.EndGame();
         }
     }
 }
